@@ -3,8 +3,19 @@
 
 from random import randint
 
-# dicDado = {'jogador1': 0, 'jogador2': 0, 'jogador3': 0, 'jogador4': 0}
-dicDado = {}
+jogarDado = {}
+contador = 1
 
 for j in range(0, 4):
-    dicDado[f'jogador{j + 1}'] = randint(1, 6)
+    jogarDado[f'jogador {j + 1}'] = randint(1, 6)
+
+print('\nOs valores sorteados são: ')
+for k, v in jogarDado.items():
+    print(f'O {k} tirou {v}')
+
+jogarDadoOrdenado = {k: v for k, v in sorted(jogarDado.items(), key=lambda item: item[1], reverse = True)}
+
+print('\nRanking dos jogadores: ')
+for k, v in jogarDadoOrdenado.items():
+    print(f'{contador}º lugar: {k} com {v}')
+    contador += 1
